@@ -1,0 +1,38 @@
+.cont {
+  display: flex;
+  width: 100%;
+
+  .left {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .right {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+}
+
+.drawer-cont {
+  width: 100%;
+  height: calc(100% - 64px);
+
+  .drawer-menu {
+    width: 160px;
+  }
+
+  .drawer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .main {
+      flex-grow: 1;
+    }
+
+    .footer {
+    }
+  }
+}
