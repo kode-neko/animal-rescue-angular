@@ -8,6 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
     SharedModule,
     MatGridListModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ]
 })
 export class MainModule { }

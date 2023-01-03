@@ -10,15 +10,15 @@ import { Animal } from 'src/app/core/model';
 export class MasterComponent implements OnInit {
 
   animalList: Animal[] = [];
+  searchField = "";
   seeMore = true;
   limit = 2;
   offset= 0;
-  search = "";
 
   constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-      this.getAnimalList(this.limit, this.offset, this.search);
+      this.getAnimalList(this.limit, this.offset, this.searchField);
   }
 
   getAnimalList(limit: number, offset: number, search: string): void {
@@ -28,8 +28,21 @@ export class MasterComponent implements OnInit {
     })
   }
 
+  parseSearchTerm(): void {
+    this.searchField = this.searchField.trim();
+  }
+
   handleSeeMore(): void {
     this.offset += this.limit;
-    this.getAnimalList(this.limit, this.offset, this.search);
+    this.getAnimalList(this.limit, this.offset, this.searchField);
+  }
+
+  handleSearch(): void {
+    this.parseSearchTerm();
+    this.seeMore = true;
+    this.limit = 2;
+    this.offset= 0;
+    this.animalList = [];
+    this.getAnimalList(this.limit, this.offset, this.searchField);
   }
 }

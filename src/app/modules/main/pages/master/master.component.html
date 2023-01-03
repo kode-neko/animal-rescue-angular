@@ -1,7 +1,13 @@
 <div class="cont">
   <div class="filter">
     <mat-form-field>
-      <input matInput placeholder="search" value="" />
+      <input
+        matInput
+        placeholder="search"
+        [(ngModel)]="searchField"
+        (blur)="parseSearchTerm()"
+        (keydown.enter)="handleSearch()"
+      />
       <mat-icon matSuffix fontIcon="search"></mat-icon>
     </mat-form-field>
   </div>
