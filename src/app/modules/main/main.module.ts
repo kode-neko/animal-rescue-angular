@@ -7,6 +7,7 @@ import { MasterComponent } from './pages/master/master.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
+    MatButtonModule,
     SharedModule,
     MatGridListModule,
     MatInputModule,

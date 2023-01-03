@@ -8,5 +8,13 @@
   <ng-container *ngFor="let animal of animalList">
     <app-info-card [animal]="animal"></app-info-card>
   </ng-container>
-  
+  <button
+    *ngIf="seeMore"
+    (click)="handleSeeMore()"
+    class="btn-ver-mas"
+    mat-raised-button
+    color="primary"
+  >
+    Ver más
+  </button>
 </div>

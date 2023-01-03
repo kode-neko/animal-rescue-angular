@@ -6,7 +6,7 @@
         <mat-icon
           aria-hidden="false"
           aria-label="Animal avatar"
-          fontIcon="female"
+          fontIcon={{animal?.sex}}
         ></mat-icon>
         <div>{{animal?.name}}</div>
       </div>
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="desc">
-        <p><mat-icon fontIcon="chat"></mat-icon>{{animal?.desc}}</p>
+        <p><span class="icon-desc"><mat-icon fontIcon="chat"></mat-icon></span>{{animal?.desc}}</p>
       </div>
     </div>
     <mat-divider></mat-divider>
