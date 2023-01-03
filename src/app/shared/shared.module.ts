@@ -6,6 +6,10 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import { InfoListComponent } from './components/info-list/info-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,14 @@ import {MatCardModule} from '@angular/material/card';
   ],
   imports: [
     MatCardModule,
+    MatGridListModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
     CommonModule
+  ],
+  exports: [
+    InfoCardComponent
   ]
 })
 export class SharedModule { }
