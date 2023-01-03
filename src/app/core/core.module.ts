@@ -18,6 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RouterModule } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     // Own
     SharedModule,
-    // MUI 
+    // MUI
+    MatProgressSpinnerModule, 
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,

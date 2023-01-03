@@ -46,6 +46,9 @@
 
   <mat-drawer-content class="drawer-content">
     <div class="main">
+      <div *ngIf="isLoading$ | async" class="blackOverlay">
+        <mat-spinner diameter="64"></mat-spinner>
+      </div>
       <ng-content select="[main]"></ng-content>
     </div>
     <div class="footer">

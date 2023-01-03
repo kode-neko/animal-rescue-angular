@@ -1,3 +1,4 @@
+import { LoadingService } from './loading.service';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +10,7 @@ import { Animal } from '../model';
 export class AnimalService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   getAnimalList(limit = 10, offset = 0, search=""): Observable<Animal[]> {

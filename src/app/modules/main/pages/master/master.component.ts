@@ -1,6 +1,9 @@
+import { BehaviorSubject } from 'rxjs';
+import { LoadingService } from './../../../../core/services/loading.service';
 import { AnimalService } from './../../../../core/services/animal.service';
 import { Component, OnInit } from '@angular/core';
 import { Animal } from 'src/app/core/model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-master',
@@ -12,19 +15,22 @@ export class MasterComponent implements OnInit {
   animalList: Animal[] = [];
   searchField = "";
   seeMore = true;
-  limit = 2;
+  limit = 4;
   offset= 0;
 
-  constructor(private animalService: AnimalService) {}
+  constructor(private animalService: AnimalService, private router: Router, private loadingService: LoadingService) {
+  }
 
   ngOnInit(): void {
       this.getAnimalList(this.limit, this.offset, this.searchField);
   }
 
   getAnimalList(limit: number, offset: number, search: string): void {
+    this.loadingService.setLoading(true);
     this.animalService.getAnimalList(limit, offset, search).subscribe(animalList => {
       this.seeMore = animalList.length !== 0;
-      this.animalList = [...this.animalList, ...animalList]
+      this.animalList = [...this.animalList, ...animalList];
+      this.loadingService.setLoading(false);
     })
   }
 
@@ -44,5 +50,13 @@ export class MasterComponent implements OnInit {
     this.offset= 0;
     this.animalList = [];
     this.getAnimalList(this.limit, this.offset, this.searchField);
+  }
+
+  handleCreate(): void {
+
+  }
+
+  handleEdit(): void {
+
   }
 }
