@@ -11,6 +11,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { DateFormatDirective } from './directives/date-format.directive';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -22,15 +30,23 @@ import { DateFormatDirective } from './directives/date-format.directive';
     DateFormatDirective
   ],
   imports: [
+    MatRadioModule,
     MatCardModule,
     MatGridListModule,
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule ,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   exports: [
-    InfoCardComponent
+    InfoCardComponent,
+    FormComponent
   ]
 })
 export class SharedModule { }

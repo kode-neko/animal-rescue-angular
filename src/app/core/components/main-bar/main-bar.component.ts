@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnDestroy } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { Subject, BehaviorSubject } from 'rxjs';
@@ -16,7 +17,7 @@ export class MainBarComponent implements OnDestroy{
   isLoading$: BehaviorSubject<boolean>;
 
 
-  constructor(breakPointObserver: BreakpointObserver, loadingService: LoadingService) {
+  constructor(breakPointObserver: BreakpointObserver, loadingService: LoadingService, private router: Router) {
     this.isLoading$ = loadingService.getLoading();
     breakPointObserver
       .observe([Breakpoints.Small, Breakpoints.XSmall])
@@ -30,5 +31,9 @@ export class MainBarComponent implements OnDestroy{
   ngOnDestroy() {
     this.destroyed.next();
     this.destroyed.complete();
+  }
+
+  handleCreateBtn() {
+    this.router.navigate(['/create'])
   }
 }

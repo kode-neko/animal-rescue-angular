@@ -1,1 +1,95 @@
-<p>form works!</p>
+
+<div [formGroup]="animal" class="form-animal">
+  <mat-form-field class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="name" />
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+  <div class="cont-2-cols">
+    <mat-radio-group class="radio-group" formControlName="sex">
+      <mat-label>Sexo</mat-label>
+      <mat-radio-button value="male"> Macho </mat-radio-button>
+      <mat-radio-button value="female"> Female </mat-radio-button>
+      <mat-hint>Hint</mat-hint>
+    </mat-radio-group>
+
+    <mat-radio-group class="radio-group" formControlName="species">
+      <mat-label>Especie</mat-label>
+      <mat-radio-button value="cat"> Gato </mat-radio-button>
+      <mat-radio-button value="dog"> Perro </mat-radio-button>
+      <mat-radio-button value="cow"> Vaca </mat-radio-button>
+      <mat-hint>Hint</mat-hint>
+    </mat-radio-group>
+  </div>
+
+  
+  <mat-form-field class="full-width">
+    <mat-label>Raza</mat-label>
+    <input matInput formControlName="breed" />
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+  <div class="cont-2-cols">
+
+    <div class="select-group">
+      <mat-form-field class="full-width">
+        <mat-label>Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Ojos</mat-label>
+        <mat-select formControlName="eyes">
+          <mat-option *ngFor="let eyes of eyesList" [value]="eyes">
+            {{ eyes }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Tamaño</mat-label>
+        <mat-select formControlName="size">
+          <mat-option *ngFor="let size of sizeList" [value]="size">
+            {{ size }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="select-group">
+      <mat-form-field class="full-width">
+        <mat-label>Color</mat-label>
+        <mat-select formControlName="color">
+          <mat-option *ngFor="let color of colorList" [value]="color">
+            {{ color }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Pelaje</mat-label>
+        <mat-select formControlName="sizeFur">
+          <mat-option *ngFor="let sizeFur of furList" [value]="sizeFur">
+            {{ sizeFur }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <mat-form-field class="full-width">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput formControlName="desc" rows="6"></textarea>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+
+</div>

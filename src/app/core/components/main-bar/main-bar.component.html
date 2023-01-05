@@ -14,7 +14,7 @@
       <span>KN Animal Rescue</span>
     </div>
     <div *ngIf="isSM" class="right">
-      <button mat-icon-button class="icon-toolbar" aria-label="Button create">
+      <button mat-icon-button class="icon-toolbar" (click)="handleCreateBtn()" aria-label="Button create">
         <mat-icon>add_circle</mat-icon>
       </button>
       <button
