@@ -1,3 +1,4 @@
+import { HeaderSubPageComponent } from './../../shared/components/header-sub-page/header-sub-page.component';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class MainModule { }

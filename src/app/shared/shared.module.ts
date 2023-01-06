@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from './components/form/form.component';
-import { HeaderPageComponent } from './components/header-page/header-page.component';
+import { HeaderSubPageComponent } from './components/header-sub-page/header-sub-page.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { InfoListComponent } from './components/info-list/info-list.component';
 import { ModalComponent } from './components/modal/modal.component';
@@ -23,7 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     FormComponent,
-    HeaderPageComponent,
+    HeaderSubPageComponent,
     InfoCardComponent,
     InfoListComponent,
     ModalComponent,
@@ -45,6 +45,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule
   ],
   exports: [
+    HeaderSubPageComponent,
     InfoCardComponent,
     FormComponent
   ]

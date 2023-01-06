@@ -1,0 +1,9 @@
+<div class="cont">
+  <div class="breadcrum">
+    <ng-container *ngFor="let page of pages; let i = index">
+      <span class="page">{{ page }}</span>
+      <span *ngIf="i < pages.length - 1" class="slash">/</span>
+    </ng-container>
+  </div>
+  <h1 class="title">{{ title }}</h1>
+</div>
