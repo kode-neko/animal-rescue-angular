@@ -1,4 +1,3 @@
-import { HeaderSubPageComponent } from './../../shared/components/header-sub-page/header-sub-page.component';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     CreateComponent,
@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatIconModule,
     FormsModule,
+    MatSnackBarModule,
   ]
 })
 export class MainModule { }

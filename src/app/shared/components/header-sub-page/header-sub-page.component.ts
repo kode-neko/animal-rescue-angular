@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Page } from 'src/app/core/model';
 
 @Component({
   selector: 'app-header-sub-page',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
 export class HeaderSubPageComponent {
 
   @Input()
-  pages: string[] = [];
+  pages: Page[] = [];
 
   @Input()
   title = '';

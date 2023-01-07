@@ -1,4 +1,4 @@
 <div class="cont">
-  <app-header-sub-page title="Create" [pages]="['home', 'create']"></app-header-sub-page>
-  <app-form></app-form>
+  <app-header-sub-page title="Create" [pages]="breadcrums"></app-header-sub-page>
+  <app-form [animalEnter]="animal" (animalResult)="handleForm($event)"></app-form>
 </div>

@@ -1,9 +1,10 @@
 
-<div [formGroup]="animal" class="form-animal">
+<div [formGroup]="animalForm" class="form-animalForm">
   <mat-form-field class="full-width">
     <mat-label>Nombre</mat-label>
     <input matInput formControlName="name" />
-    <mat-hint>Hint</mat-hint>
+    <mat-hint *ngIf="animalForm.get('name')?.invalid && animalForm.get('name')?.dirty">No ams de 30</mat-hint>
+    <mat-hint *ngIf="animalForm.get('name')?.valid"></mat-hint>
   </mat-form-field>
 
   <div class="cont-2-cols">
@@ -11,7 +12,6 @@
       <mat-label>Sexo</mat-label>
       <mat-radio-button value="male"> Macho </mat-radio-button>
       <mat-radio-button value="female"> Female </mat-radio-button>
-      <mat-hint>Hint</mat-hint>
     </mat-radio-group>
 
     <mat-radio-group class="radio-group" formControlName="species">
@@ -19,7 +19,6 @@
       <mat-radio-button value="cat"> Gato </mat-radio-button>
       <mat-radio-button value="dog"> Perro </mat-radio-button>
       <mat-radio-button value="cow"> Vaca </mat-radio-button>
-      <mat-hint>Hint</mat-hint>
     </mat-radio-group>
   </div>
 
@@ -27,7 +26,8 @@
   <mat-form-field class="full-width">
     <mat-label>Raza</mat-label>
     <input matInput formControlName="breed" />
-    <mat-hint>Hint</mat-hint>
+    <mat-hint *ngIf="animalForm.get('breed')?.invalid && animalForm.get('breed')?.dirty">No ams de 50</mat-hint>
+    <mat-hint *ngIf="animalForm.get('breed')?.valid"></mat-hint>
   </mat-form-field>
 
   <div class="cont-2-cols">
@@ -89,7 +89,12 @@
   <mat-form-field class="full-width">
     <mat-label>Descripción</mat-label>
     <textarea matInput formControlName="desc" rows="6"></textarea>
-    <mat-hint>Hint</mat-hint>
+    <mat-hint *ngIf="animalForm.get('desc')?.invalid && animalForm.get('desc')?.dirty">No ams de 500</mat-hint>
+    <mat-hint *ngIf="animalForm.get('desc')?.valid"></mat-hint>
   </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="handleForm()">Guardar</button>
+  </div>
 
 </div>

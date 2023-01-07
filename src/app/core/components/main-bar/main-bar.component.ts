@@ -22,10 +22,7 @@ export class MainBarComponent implements OnDestroy{
     breakPointObserver
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .pipe(takeUntil(this.destroyed))
-      .subscribe(result => {
-        console.log(this.isSM)
-        this.isSM = !result.matches
-      })
+      .subscribe(result => this.isSM = !result.matches)
   }
 
   ngOnDestroy() {

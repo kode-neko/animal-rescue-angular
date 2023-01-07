@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Sex, ColorEyes, Species, ColorFur, Size, SizeFur } from 'src/app/core/model';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Sex, ColorEyes, Species, ColorFur, Size, SizeFur, Animal } from 'src/app/core/model';
 
 @Component({
   selector: 'app-form',
@@ -8,17 +8,26 @@ import { Sex, ColorEyes, Species, ColorFur, Size, SizeFur } from 'src/app/core/m
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-  animal = this.fb.group({
-    name: '',
+
+  @Input() set animalEnter(value: Animal)  {
+    this.animalForm.setValue({
+      ...value, bday: value.bday || new Date
+    })
+  }
+
+  @Output() animalResult = new EventEmitter<Animal>();
+
+  animalForm = this.fb.group({
+    name: ['', [Validators.required, Validators.maxLength(30)]],
     bday: new Date(),
-    sex: Sex.MALE,
-    desc: '',
-    breed: '',
-    color: ColorFur.BLACK,
-    eyes: ColorEyes.BLUE,
-    species: Species.CAT,
-    size: Size.LARGE,
-    sizeFur: SizeFur.LARGE,
+    sex: [Sex.MALE, Validators.pattern(`^${Object.values(Sex).join('|')}$`)],
+    desc: ['', [Validators.minLength(30), Validators.maxLength(500)]],
+    breed: ['', [Validators.maxLength(50)]],
+    color: [ColorFur.BLACK, Validators.pattern(`^(${Object.values(ColorFur).join('|')})$`)],
+    eyes: [ColorEyes.BLUE, Validators.pattern(`^(${Object.values(ColorEyes).join('|')})$`)],
+    species: [Species.CAT, Validators.pattern(`^(${Object.values(Species).join('|')})$`)],
+    size: [Size.LARGE, Validators.pattern(`^(${Object.values(Size).join('|')})$`)],
+    sizeFur: [SizeFur.LARGE, Validators.pattern(`^(${Object.values(SizeFur).join('|')})$`)],
   });
 
   colorList: ColorFur[] = [];
@@ -28,7 +37,6 @@ export class FormComponent {
 
   constructor(private fb: FormBuilder){
     this.initLists();
-    this.animal.valueChanges.subscribe(val => console.log(val))
   }
 
   initLists() {
@@ -36,5 +44,10 @@ export class FormComponent {
     this.eyesList = Object.values(ColorEyes).map(value => value);
     this.sizeList = Object.values(Size).map(value => value);
     this.furList = Object.values(SizeFur).map(value => value);
+  }
+
+  handleForm() {
+    if(this.animalForm.valid)
+      this.animalResult.emit(this.animalForm.value as Animal); 
   }
 }

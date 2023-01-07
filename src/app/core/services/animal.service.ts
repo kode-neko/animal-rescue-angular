@@ -16,4 +16,8 @@ export class AnimalService {
   getAnimalList(limit = 10, offset = 0, search=""): Observable<Animal[]> {
     return this.http.post<Animal[]>('http://localhost:3001/animal/list', {limit, offset, search});
   }
+
+  createAnimal(animal: Animal): Observable<Animal> {
+    return this.http.post<Animal>('http://localhost:3001/animal', animal);
+  }
 }

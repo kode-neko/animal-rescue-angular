@@ -1,4 +1,3 @@
-import { BehaviorSubject } from 'rxjs';
 import { LoadingService } from './../../../../core/services/loading.service';
 import { AnimalService } from './../../../../core/services/animal.service';
 import { Component, OnInit } from '@angular/core';
@@ -50,10 +49,6 @@ export class MasterComponent implements OnInit {
     this.offset= 0;
     this.animalList = [];
     this.getAnimalList(this.limit, this.offset, this.searchField);
-  }
-
-  handleCreate(): void {
-
   }
 
   handleEdit(): void {
