@@ -51,7 +51,7 @@ export class MasterComponent implements OnInit {
     this.getAnimalList(this.limit, this.offset, this.searchField);
   }
 
-  handleEdit(): void {
-
+  handleEdit(number: string): void {
+    this.router.navigate(['/edit', number])
   }
 }

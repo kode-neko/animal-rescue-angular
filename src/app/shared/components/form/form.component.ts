@@ -9,9 +9,9 @@ import { Sex, ColorEyes, Species, ColorFur, Size, SizeFur, Animal } from 'src/ap
 })
 export class FormComponent {
 
-  @Input() set animalEnter(value: Animal)  {
+  @Input() set animalEnter(values: Animal)  {
     this.animalForm.setValue({
-      ...value, bday: value.bday || new Date
+      ...values, bday: values.bday ? new Date(values.bday) : new Date()
     })
   }
 

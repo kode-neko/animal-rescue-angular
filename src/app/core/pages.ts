@@ -8,6 +8,10 @@ const pages: {[name: string]: Page} = {
   create: {
     name: 'create',
     url: '/create',
+  },
+  edit: {
+    name: 'edit',
+    url: '/create',
   }
 }
 

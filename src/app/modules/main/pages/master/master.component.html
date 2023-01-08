@@ -12,7 +12,7 @@
     </mat-form-field>
   </div>
   <ng-container *ngFor="let animal of animalList">
-    <app-info-card [animal]="animal"></app-info-card>
+    <app-info-card [animal]="animal" (clickEdit)="handleEdit($event)"></app-info-card>
   </ng-container>
   <button
     *ngIf="seeMore"

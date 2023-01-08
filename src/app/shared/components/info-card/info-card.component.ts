@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from 'src/app/core/model';
 
 @Component({
@@ -10,4 +10,11 @@ export class InfoCardComponent {
 
   @Input()
   animal: Animal|undefined = undefined;
+
+  @Output()
+  clickEdit = new EventEmitter<string>();
+
+  hanldeEdit(): void {
+    this.clickEdit.emit(this.animal?.id)
+  }
 }

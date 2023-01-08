@@ -1,3 +1,5 @@
+import { LoadingService } from './../../../../core/services/loading.service';
+import { Router } from '@angular/router';
 import { AnimalService } from './../../../../core/services/animal.service';
 import { Animal, Sex, ColorFur, ColorEyes, Species, Size, SizeFur } from 'src/app/core/model';
 import { Component } from '@angular/core';
@@ -26,18 +28,20 @@ export class CreateComponent {
     sizeFur: SizeFur.LARGE,
   } 
 
-  constructor(private animalService: AnimalService, private snackBar: MatSnackBar) {
+  constructor(private animalService: AnimalService, private snackBar: MatSnackBar, private router: Router, private loadingService: LoadingService) {
   }
 
   handleForm(animal: Animal) {
+    this.loadingService.setLoading(true);
     this.animalService.createAnimal(animal).subscribe({
-      next: (animal: Animal) => {
+      next: () => {
         this.snackBar.open('creado', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'});
-        console.table(animal)
+        this.router.navigate(['/']);
       },
       error: () => {
         this.snackBar.open('hubo problemas', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'})
-      }
+      },
+      complete: () => this.loadingService.setLoading(false)
     });
   }
 }
