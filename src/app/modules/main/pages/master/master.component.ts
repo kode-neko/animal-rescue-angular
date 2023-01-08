@@ -1,3 +1,6 @@
+import { ModalComponent } from './../../../../shared/components/modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoadingService } from './../../../../core/services/loading.service';
 import { AnimalService } from './../../../../core/services/animal.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +20,13 @@ export class MasterComponent implements OnInit {
   limit = 4;
   offset= 0;
 
-  constructor(private animalService: AnimalService, private router: Router, private loadingService: LoadingService) {
+  constructor(
+    private animalService: AnimalService, 
+    private router: Router, 
+    private loadingService: LoadingService, 
+    private snackBar: MatSnackBar, 
+    public dialog: MatDialog
+    ) {
   }
 
   ngOnInit(): void {
@@ -45,11 +54,47 @@ export class MasterComponent implements OnInit {
   handleSearch(): void {
     this.parseSearchTerm();
     this.seeMore = true;
-    this.limit = 2;
+    this.limit = 4;
     this.offset= 0;
     this.animalList = [];
     this.getAnimalList(this.limit, this.offset, this.searchField);
   }
+
+  handleModalDelete(id: string): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: {title: "eliminar", msg: "mensaje", btnList: ['accept', 'close']},
+    });
+
+    dialogRef.afterClosed().subscribe(btn => {
+      console.log(btn)
+      if(btn === "accept")
+        this.handleDelete(id);
+    });
+  }
+
+  handleDelete(id: string): void {
+    this.loadingService.setLoading(true)
+    this.animalService.deleteAnimal(id).subscribe({
+      next: (isDel) => {
+        if(isDel) {
+          this.snackBar.open('deleted', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'})
+          this.seeMore = true;
+          this.limit = 4;
+          this.offset= 0;
+          this.animalList = [];
+          this.getAnimalList(this.limit, this.offset, this.searchField);
+        } else {
+          this.snackBar.open('error del', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'})
+          this.loadingService.setLoading(false)
+        }
+      },
+      error: () => {
+        this.snackBar.open('error del', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'});
+        this.loadingService.setLoading(false)
+      }
+    })
+  }
+
 
   handleEdit(number: string): void {
     this.router.navigate(['/edit', number])

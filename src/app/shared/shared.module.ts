@@ -19,7 +19,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {RouterModule} from '@angular/router';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import {RouterModule} from '@angular/router';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   exports: [
     HeaderSubPageComponent,

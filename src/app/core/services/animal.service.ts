@@ -27,4 +27,8 @@ export class AnimalService {
   updateAnimal(animal: Animal): Observable<Animal> {
     return this.http.put<Animal>('http://localhost:3001/animal', animal);
   }
+
+  deleteAnimal(id: string): Observable<boolean> {
+    return this.http.delete<boolean>('http://localhost:3001/animal/' + id);
+  }
 }

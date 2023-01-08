@@ -12,7 +12,14 @@ export class InfoCardComponent {
   animal: Animal|undefined = undefined;
 
   @Output()
+  clickDelete = new EventEmitter<string>();
+
+  @Output()
   clickEdit = new EventEmitter<string>();
+
+  hanldeDelete(): void {
+    this.clickDelete.emit(this.animal?.id)
+  }
 
   hanldeEdit(): void {
     this.clickEdit.emit(this.animal?.id)
