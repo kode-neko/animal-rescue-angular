@@ -20,6 +20,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {RouterModule} from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
+import { I18knPipe } from './pipes/i18kn.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     InfoCardComponent,
     InfoListComponent,
     ModalComponent,
-    DateFormatDirective
+    DateFormatDirective,
+    I18knPipe
   ],
   imports: [
     MatRadioModule,
@@ -50,7 +52,8 @@ import {MatDialogModule} from '@angular/material/dialog';
   exports: [
     HeaderSubPageComponent,
     InfoCardComponent,
-    FormComponent
+    FormComponent,
+    I18knPipe
   ]
 })
 export class SharedModule { }

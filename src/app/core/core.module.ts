@@ -48,8 +48,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatGridListModule,
     RouterModule
   ],
-exports: [
-  FrameComponent
-]  
+  exports: [
+    FrameComponent
+  ]  
 })
 export class CoreModule { }
