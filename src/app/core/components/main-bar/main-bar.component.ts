@@ -12,10 +12,10 @@ import { LoadingService } from '../../services/loading.service';
 })
 export class MainBarComponent implements OnDestroy{
 
+  isOpenedDrawer = false;
   destroyed = new Subject<void>();
   isSM = false;
   isLoading$: BehaviorSubject<boolean>;
-
 
   constructor(breakPointObserver: BreakpointObserver, loadingService: LoadingService, private router: Router) {
     this.isLoading$ = loadingService.getLoading();
@@ -30,7 +30,12 @@ export class MainBarComponent implements OnDestroy{
     this.destroyed.complete();
   }
 
+  handleOpenDrawer() {
+    this.isOpenedDrawer = !this.isOpenedDrawer
+  }
+
   handleCreateBtn() {
     this.router.navigate(['/create'])
+    this.isOpenedDrawer = false;
   }
 }

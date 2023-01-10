@@ -6,7 +6,7 @@
           mat-icon-button
           class="icon-toolbar"
           aria-label="Buton menu"
-          (click)="drawer.toggle()"
+          (click)="handleOpenDrawer()"
         >
           <mat-icon>menu</mat-icon>
         </button>
@@ -34,16 +34,16 @@
   </div>
 </mat-toolbar>
 <mat-drawer-container class="drawer-cont" [hasBackdrop]="false">
-  <mat-drawer #drawer class="drawer-menu" mode="over">
+  <mat-drawer class="drawer-menu" mode="over" [opened]="isOpenedDrawer">
     <mat-selection-list [multiple]="false">
+      <mat-list-option (click)="handleCreateBtn()">Create</mat-list-option>
       <app-switch-theme></app-switch-theme>
       <app-switch-lang></app-switch-lang>
       <mat-divider></mat-divider>
-      <mat-list-option> Twitter </mat-list-option>
-      <mat-list-option> Facebook </mat-list-option>
+      <mat-list-option>Twitter</mat-list-option>
+      <mat-list-option>Facebook</mat-list-option>
     </mat-selection-list>
   </mat-drawer>
-
   <mat-drawer-content class="drawer-content">
     <div class="main">
       <div *ngIf="isLoading$ | async" class="blackOverlay">
