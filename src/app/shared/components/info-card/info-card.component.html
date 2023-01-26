@@ -19,19 +19,19 @@
         <div class="der">
           <mat-list>
             <mat-list-item>
-              <span matListItemTitle>Nacimiento</span>
+              <span matListItemTitle>{{'labels.bday' | i18kn}}</span>
               <span matListItemLine>{{animal?.bday}}</span>
             </mat-list-item>
             <mat-list-item>
-              <span matListItemTitle>Especie</span>
+              <span matListItemTitle>{{'labels.species' | i18kn}}</span>
               <span matListItemLine>{{animal?.species}}</span>
             </mat-list-item>
             <mat-list-item>
-              <span matListItemTitle>Raza</span>
+              <span matListItemTitle>{{'labels.breed' | i18kn}}</span>
               <span matListItemLine>{{animal?.breed}}</span>
             </mat-list-item>
             <mat-list-item>
-              <span matListItemTitle>Color</span>
+              <span matListItemTitle>{{'labels.colorFur' | i18kn}}</span>
               <span matListItemLine>{{animal?.color}}</span>
             </mat-list-item>
           </mat-list>
@@ -39,15 +39,15 @@
         <div class="izq">
           <mat-list>
             <mat-list-item>
-              <span matListItemTitle>Ojos</span>
+              <span matListItemTitle>{{'labels.eyes' | i18kn}}</span>
               <span matListItemLine>{{animal?.eyes}}</span>
             </mat-list-item>
             <mat-list-item>
-              <span matListItemTitle>Tamaño</span>
+              <span matListItemTitle>{{'labels.size' | i18kn}}</span>
               <span matListItemLine>{{animal?.size}}</span>
             </mat-list-item>
             <mat-list-item>
-              <span matListItemTitle>Pelaje</span>
+              <span matListItemTitle>{{'labels.sizeFur' | i18kn}}</span>
               <span matListItemLine>{{animal?.sizeFur}}</span>
             </mat-list-item>
           </mat-list>
@@ -61,7 +61,7 @@
   </mat-card-content>
 
   <mat-card-actions align="end">
-    <button mat-button (click)="hanldeDelete()">Eliminar</button>
-    <button mat-button (click)="hanldeEdit()">Editar</button>
+    <button mat-button (click)="hanldeDelete()">{{'labels.delete' | i18kn}}</button>
+    <button mat-button (click)="hanldeEdit()">{{'labels.edit' | i18kn}}</button>
   </mat-card-actions>
 </mat-card>

@@ -11,7 +11,7 @@
           <mat-icon>menu</mat-icon>
         </button>
       </ng-container>
-      <span>KN Animal Rescue</span>
+      <a class="title" [routerLink]="['/']" >KN Animal Rescue</a>
     </div>
     <div *ngIf="isSM" class="right">
       <button mat-icon-button class="icon-toolbar" (click)="handleCreateBtn()" aria-label="Button create">
@@ -36,7 +36,7 @@
 <mat-drawer-container class="drawer-cont" [hasBackdrop]="false">
   <mat-drawer class="drawer-menu" mode="over" [opened]="isOpenedDrawer">
     <mat-selection-list [multiple]="false">
-      <mat-list-option (click)="handleCreateBtn()">Create</mat-list-option>
+      <mat-list-option (click)="handleCreateBtn()">{{'pages.create' | i18kn}}</mat-list-option>
       <app-switch-theme></app-switch-theme>
       <app-switch-lang></app-switch-lang>
       <mat-divider></mat-divider>

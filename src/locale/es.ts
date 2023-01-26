@@ -32,7 +32,8 @@ export default {
     accept: "Aceptar",
     save: "Guardar",
     edit: "Editar",
-    delete: "Eliminar"
+    delete: "Eliminar",
+    more: "Ver más"
   },
   placeH: {
     search: "Buscar..."

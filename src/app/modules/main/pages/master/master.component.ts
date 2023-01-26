@@ -1,3 +1,4 @@
+import { I18knService } from './../../../../core/services/i18kn.service';
 import { ModalComponent } from './../../../../shared/components/modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,7 +26,8 @@ export class MasterComponent implements OnInit {
     private router: Router, 
     private loadingService: LoadingService, 
     private snackBar: MatSnackBar, 
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private i18kn: I18knService
     ) {
   }
 
@@ -62,7 +64,11 @@ export class MasterComponent implements OnInit {
 
   handleModalDelete(id: string): void {
     const dialogRef = this.dialog.open(ModalComponent, {
-      data: {title: "eliminar", msg: "mensaje", btnList: ['accept', 'close']},
+      data: {
+        title: this.i18kn.t('modal.title.delete'), 
+        msg: this.i18kn.t('modal.body.delete_male'), 
+        btnList: [this.i18kn.t('labels.accept'), this.i18kn.t('labels.cancel')]
+      },
     });
 
     dialogRef.afterClosed().subscribe(btn => {
@@ -77,14 +83,21 @@ export class MasterComponent implements OnInit {
     this.animalService.deleteAnimal(id).subscribe({
       next: (isDel) => {
         if(isDel) {
-          this.snackBar.open('deleted', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'})
+          this.snackBar.open(
+            'deleted', 
+            'close', 
+            {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'}
+            )
           this.seeMore = true;
           this.limit = 4;
           this.offset= 0;
           this.animalList = [];
           this.getAnimalList(this.limit, this.offset, this.searchField);
         } else {
-          this.snackBar.open('error del', 'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'})
+          this.snackBar.open(
+            'error del', 
+            'close', {duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'right'}
+            )
           this.loadingService.setLoading(false)
         }
       },

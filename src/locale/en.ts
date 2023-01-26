@@ -32,7 +32,8 @@ export default {
     accept: "Accept",
     save: "Save",
     edit: "Edit",
-    delete: "Delete"
+    delete: "Delete",
+    more: "Ver más"
   },
   placeH: {
     search: "Search..."
