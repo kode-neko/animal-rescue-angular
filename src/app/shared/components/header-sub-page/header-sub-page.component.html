@@ -1,0 +1,12 @@
+<div class="cont">
+  <div class="breadcrum">
+    <ng-container *ngFor="let page of pages; let i = index">
+      <span *ngIf="i < pages.length - 1">
+        <a class="page" [routerLink]="page.url" >{{ page.name }}</a>
+        <span class="slash">/</span>
+      </span>
+      <span *ngIf="i === pages.length - 1" >{{ page.name }}</span>
+    </ng-container>
+  </div>
+  <h1 class="title">{{ title }}</h1>
+</div>

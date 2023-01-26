@@ -1,0 +1,19 @@
+.cont {
+  margin-bottom: 40px;
+}
+
+.breadcrum {
+  font-size: 16px;
+  margin-bottom: 16px;
+  .page {
+    text-decoration: none;
+    color: white;
+  }
+  .slash {
+    margin: 0 8px;
+  }
+}
+
+.title {
+  font-size: 48px;
+}

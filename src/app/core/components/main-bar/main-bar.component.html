@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+  <div class="cont">
+    <div class="left">
+      <ng-container *ngIf="!isSM">
+        <button
+          mat-icon-button
+          class="icon-toolbar"
+          aria-label="Buton menu"
+          (click)="handleOpenDrawer()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </ng-container>
+      <a class="title" [routerLink]="['/']" >KN Animal Rescue</a>
+    </div>
+    <div *ngIf="isSM" class="right">
+      <button mat-icon-button class="icon-toolbar" (click)="handleCreateBtn()" aria-label="Button create">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="icon-toolbar"
+        aria-label="Button social network menu"
+      >
+        <mat-icon [matMenuTriggerFor]="menu">share</mat-icon>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </button>
+      <app-menu-theme></app-menu-theme>
+      <app-menu-lang></app-menu-lang>
+    </div>
+  </div>
+</mat-toolbar>
+<mat-drawer-container class="drawer-cont" [hasBackdrop]="false">
+  <mat-drawer class="drawer-menu" mode="over" [opened]="isOpenedDrawer">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option (click)="handleCreateBtn()">{{'pages.create' | i18kn}}</mat-list-option>
+      <app-switch-theme></app-switch-theme>
+      <app-switch-lang></app-switch-lang>
+      <mat-divider></mat-divider>
+      <mat-list-option>Twitter</mat-list-option>
+      <mat-list-option>Facebook</mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+  <mat-drawer-content class="drawer-content">
+    <div class="main">
+      <div *ngIf="isLoading$ | async" class="blackOverlay">
+        <mat-spinner diameter="64"></mat-spinner>
+      </div>
+      <ng-content select="[main]"></ng-content>
+    </div>
+    <div class="footer">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

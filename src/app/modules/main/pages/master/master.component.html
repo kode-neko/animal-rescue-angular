@@ -1,0 +1,27 @@
+<div class="cont">
+  <div class="filter">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="search"
+        [(ngModel)]="searchField"
+        (blur)="parseSearchTerm()"
+        (keydown.enter)="handleSearch()"
+      />
+      <mat-icon matSuffix fontIcon="search"></mat-icon>
+    </mat-form-field>
+  </div>
+  <ng-container *ngFor="let animal of animalList">
+    <app-info-card [animal]="animal" (clickDelete)="handleModalDelete($event)" (clickEdit)="handleEdit($event)"></app-info-card>
+  </ng-container>
+  <button
+    *ngIf="seeMore"
+    (click)="handleSeeMore()"
+    class="btn-ver-mas"
+    mat-raised-button
+    color="primary"
+    i18n
+  >
+  {{'labels.more' | i18kn}}
+  </button>
+</div>

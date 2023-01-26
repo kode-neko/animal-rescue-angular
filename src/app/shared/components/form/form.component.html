@@ -1,0 +1,96 @@
+
+<div [formGroup]="animalForm" class="form-animalForm">
+  <mat-form-field class="full-width">
+    <mat-label>{{'labels.name' | i18kn}}</mat-label>
+    <input matInput formControlName="name" />
+    <mat-hint *ngIf="animalForm.get('name')?.invalid && animalForm.get('name')?.dirty">No ams de 30</mat-hint>
+    <mat-hint *ngIf="animalForm.get('name')?.valid"></mat-hint>
+  </mat-form-field>
+
+  <div class="cont-2-cols">
+    <mat-radio-group class="radio-group" formControlName="sex">
+      <mat-label>{{'labels.sex' | i18kn}}</mat-label>
+      <mat-radio-button value="male">{{'sex.male' | i18kn}}</mat-radio-button>
+      <mat-radio-button value="female">{{'sex.female' | i18kn}}</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-radio-group class="radio-group" formControlName="species">
+      <mat-label>{{'labels.species' | i18kn}}</mat-label>
+      <mat-radio-button value="cat">{{'species.cat' | i18kn}}</mat-radio-button>
+      <mat-radio-button value="dog">{{'species.dog' | i18kn}}</mat-radio-button>
+      <mat-radio-button value="cow">{{'species.cow' | i18kn}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  
+  <mat-form-field class="full-width">
+    <mat-label>{{'labels.breed' | i18kn}}</mat-label>
+    <input matInput formControlName="breed" />
+    <mat-hint *ngIf="animalForm.get('breed')?.invalid && animalForm.get('breed')?.dirty">No ams de 50</mat-hint>
+    <mat-hint *ngIf="animalForm.get('breed')?.valid"></mat-hint>
+  </mat-form-field>
+
+  <div class="cont-2-cols">
+
+    <div class="select-group">
+      <mat-form-field class="full-width">
+        <mat-label>{{'labels.bday' | i18kn}}</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="bday"/>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>{{'labels.eyes' | i18kn}}</mat-label>
+        <mat-select formControlName="eyes">
+          <mat-option *ngFor="let eyes of eyesList" [value]="eyes">
+            {{ eyes }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>{{'labels.size' | i18kn}}</mat-label>
+        <mat-select formControlName="size">
+          <mat-option *ngFor="let size of sizeList" [value]="size">
+            {{ size }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="select-group">
+      <mat-form-field class="full-width">
+        <mat-label>{{'labels.colorFur' | i18kn}}</mat-label>
+        <mat-select formControlName="color">
+          <mat-option *ngFor="let color of colorList" [value]="color">
+            {{ color }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>{{'labels.sizeFur' | i18kn}}</mat-label>
+        <mat-select formControlName="sizeFur">
+          <mat-option *ngFor="let sizeFur of furList" [value]="sizeFur">
+            {{ sizeFur }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <mat-form-field class="full-width">
+    <mat-label>{{'labels.desc' | i18kn}}</mat-label>
+    <textarea matInput formControlName="desc" rows="6"></textarea>
+    <mat-hint *ngIf="animalForm.get('desc')?.invalid && animalForm.get('desc')?.dirty">No ams de 500</mat-hint>
+    <mat-hint *ngIf="animalForm.get('desc')?.valid"></mat-hint>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="handleForm()">Guardar</button>
+  </div>
+
+</div>

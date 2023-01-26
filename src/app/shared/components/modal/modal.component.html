@@ -1,0 +1,7 @@
+<h1>{{data.title}}</h1>
+<mat-dialog-content>
+  {{data.msg}}
+</mat-dialog-content>
+<div mat-dialod-actions *ngIf="data.btnList.length !== 0">
+  <button *ngFor="let btn of data.btnList" (click)="handlerButton(btn)">{{btn}}</button>
+</div>

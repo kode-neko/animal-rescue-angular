@@ -1,0 +1,23 @@
+.title {
+  display: flex;
+}
+
+.cont {
+  display: flex;
+
+  .attr {
+    display: flex;
+    width: 50%;
+  }
+
+  .desc {
+    padding-top: 16px;
+    width: 50%;
+    text-align: justify;
+
+    .icon-desc {
+      margin-right: 12px;
+    }
+  }
+}
+

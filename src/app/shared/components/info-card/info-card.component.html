@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-card-header>
+    <img src="/assets/cat.png" mat-card-avatar />
+    <mat-card-title>
+      <div class="title">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Animal avatar"
+          fontIcon={{animal?.sex}}
+        ></mat-icon>
+        <div>{{animal?.name}}</div>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="cont">
+      <div class="attr">
+        <div class="der">
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.bday' | i18kn}}</span>
+              <span matListItemLine>{{animal?.bday}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.species' | i18kn}}</span>
+              <span matListItemLine>{{animal?.species}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.breed' | i18kn}}</span>
+              <span matListItemLine>{{animal?.breed}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.colorFur' | i18kn}}</span>
+              <span matListItemLine>{{animal?.color}}</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div class="izq">
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.eyes' | i18kn}}</span>
+              <span matListItemLine>{{animal?.eyes}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.size' | i18kn}}</span>
+              <span matListItemLine>{{animal?.size}}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>{{'labels.sizeFur' | i18kn}}</span>
+              <span matListItemLine>{{animal?.sizeFur}}</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+      <div class="desc">
+        <p><span class="icon-desc"><mat-icon fontIcon="chat"></mat-icon></span>{{animal?.desc}}</p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-button (click)="hanldeDelete()">{{'labels.delete' | i18kn}}</button>
+    <button mat-button (click)="hanldeEdit()">{{'labels.edit' | i18kn}}</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,11 @@
+<button
+  mat-icon-button
+  class="icon-toolbar"
+  aria-label="Button lang menu"
+>
+  <mat-icon [matMenuTriggerFor]="menuLang">translate</mat-icon>
+  <mat-menu #menuLang="matMenu">
+    <button mat-menu-item>en</button>
+    <button mat-menu-item>es</button>
+  </mat-menu>
+</button>

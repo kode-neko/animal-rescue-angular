@@ -1,0 +1,16 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0 auto;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.btn-ver-mas {
+  width: 100px;
+  align-self: center;
+}
