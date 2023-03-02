@@ -1,0 +1,7 @@
+export const environment = {
+  production: false,
+  API_PROTOCOL: 'http://',
+  API_SERVER: 'server_path',
+  API_PORT: 3000,
+  VITE_APP_PORT: 3001
+};
