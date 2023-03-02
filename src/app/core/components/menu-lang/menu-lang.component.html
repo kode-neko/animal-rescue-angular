@@ -5,7 +5,7 @@
 >
   <mat-icon [matMenuTriggerFor]="menuLang">translate</mat-icon>
   <mat-menu #menuLang="matMenu">
-    <button mat-menu-item>en</button>
-    <button mat-menu-item>es</button>
+    <button mat-menu-item (click)="changeLang('en')">en</button>
+    <button mat-menu-item (click)="changeLang('es')">es</button>
   </mat-menu>
 </button>

@@ -1,5 +1,5 @@
 import { I18knService } from './core/services/i18kn.service';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  constructor(private i18kn: I18knService) {
-    i18kn.initService()
+  constructor(private i18kn: I18knService, private cdr: ChangeDetectorRef) {
+    this.langManager();
+  }
+
+  langManager(): void {
+    this.i18kn.initService()
+    this.i18kn.getUpdateLang().subscribe({
+      next: () => {
+        this.cdr.markForCheck();
+      }
+    })
   }
 }

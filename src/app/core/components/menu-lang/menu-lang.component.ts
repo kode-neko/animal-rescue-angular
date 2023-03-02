@@ -1,3 +1,4 @@
+import { I18knService } from './../../services/i18kn.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class MenuLangComponent {
 
+  constructor(private i18knService: I18knService) {
+
+  }
+
+  changeLang(lang: string) {
+    this.i18knService.changeLang(lang);
+  }
 }
