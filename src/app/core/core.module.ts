@@ -19,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RouterModule } from '@angular/router';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatProgressSpinnerModule, 
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,

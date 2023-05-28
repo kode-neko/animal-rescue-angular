@@ -1,11 +1,7 @@
-<button
-  mat-icon-button
-  class="icon-toolbar"
-  aria-label="Button lang menu"
->
-  <mat-icon [matMenuTriggerFor]="menuLang">translate</mat-icon>
-  <mat-menu #menuLang="matMenu">
-    <button mat-menu-item (click)="changeLang('en')">en</button>
-    <button mat-menu-item (click)="changeLang('es')">es</button>
-  </mat-menu>
+<button mat-icon-button [matMenuTriggerFor]="menuLang">
+  <mat-icon>translate</mat-icon>
 </button>
+<mat-menu #menuLang="matMenu">
+  <button mat-menu-item (click)="changeLang('en')">en</button>
+  <button mat-menu-item (click)="changeLang('es')">es</button>
+</mat-menu>

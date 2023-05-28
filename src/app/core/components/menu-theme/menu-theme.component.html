@@ -1,11 +1,7 @@
-<button
-  mat-icon-button
-  class="icon-toolbar"
-  aria-label="Button theme menu"
->
-  <mat-icon [matMenuTriggerFor]="menuTheme">palette</mat-icon>
-  <mat-menu #menuTheme="matMenu">
-    <button mat-menu-item>dark</button>
-    <button mat-menu-item>theme</button>
-  </mat-menu>
+<button mat-icon-button [matMenuTriggerFor]="menuTheme">
+  <mat-icon>palette</mat-icon>
 </button>
+<mat-menu #menuTheme="matMenu">
+  <button mat-menu-item>dark</button>
+  <button mat-menu-item>theme</button>
+</mat-menu>

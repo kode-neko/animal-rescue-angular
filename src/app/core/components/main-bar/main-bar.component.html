@@ -1,44 +1,30 @@
 <mat-toolbar color="primary">
-  <div class="cont">
+  <div class="toolbar">
     <div class="left">
       <ng-container *ngIf="!isSM">
-        <button
-          mat-icon-button
-          class="icon-toolbar"
-          aria-label="Buton menu"
-          (click)="handleOpenDrawer()"
-        >
+        <button mat-icon-button (click)="handleOpenDrawer()">
           <mat-icon>menu</mat-icon>
         </button>
       </ng-container>
       <a class="title" [routerLink]="['/']">KN Animal Rescue</a>
     </div>
     <div *ngIf="isSM" class="right">
-      <button
-        mat-icon-button
-        class="icon-toolbar"
-        (click)="handleCreateBtn()"
-        aria-label="Button create"
-      >
+      <button mat-icon-button (click)="handleCreateBtn()">
         <mat-icon>add_circle</mat-icon>
       </button>
-      <button
-        mat-icon-button
-        class="icon-toolbar"
-        aria-label="Button social network menu"
-      >
-        <mat-icon [matMenuTriggerFor]="menu">share</mat-icon>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
+      <button [matMenuTriggerFor]="share" mat-icon-button>
+        <mat-icon>share</mat-icon>
       </button>
+      <mat-menu #share="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
       <app-menu-theme></app-menu-theme>
       <app-menu-lang></app-menu-lang>
     </div>
   </div>
 </mat-toolbar>
-<mat-drawer-container class="drawer-cont" [hasBackdrop]="false">
+<mat-drawer-container class="drawer-container" [hasBackdrop]="false">
   <mat-drawer class="drawer-menu" mode="over" [opened]="isOpenedDrawer">
     <mat-selection-list [multiple]="false">
       <mat-list-option (click)="handleCreateBtn()">{{
@@ -52,14 +38,16 @@
     </mat-selection-list>
   </mat-drawer>
   <mat-drawer-content class="drawer-content">
-    <!--<div *ngIf="isLoading$ | async" class="blackOverlay">
-        <mat-spinner diameter="64"></mat-spinner>
-      </div>-->
-    <div class="main">
-      <ng-content select="[main]"></ng-content>
+    <div *ngIf="isLoading$ | async" class="overlay">
+      <mat-spinner diameter="64"></mat-spinner>
     </div>
-    <div class="footer">
-      <ng-content select="[footer]"></ng-content>
+    <div class="cont">
+      <div class="main">
+        <ng-content select="[main]"></ng-content>
+      </div>
+      <div class="footer">
+        <ng-content select="[footer]"></ng-content>
+      </div>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>
