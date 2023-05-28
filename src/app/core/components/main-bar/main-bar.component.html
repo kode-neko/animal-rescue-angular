@@ -11,10 +11,15 @@
           <mat-icon>menu</mat-icon>
         </button>
       </ng-container>
-      <a class="title" [routerLink]="['/']" >KN Animal Rescue</a>
+      <a class="title" [routerLink]="['/']">KN Animal Rescue</a>
     </div>
     <div *ngIf="isSM" class="right">
-      <button mat-icon-button class="icon-toolbar" (click)="handleCreateBtn()" aria-label="Button create">
+      <button
+        mat-icon-button
+        class="icon-toolbar"
+        (click)="handleCreateBtn()"
+        aria-label="Button create"
+      >
         <mat-icon>add_circle</mat-icon>
       </button>
       <button
@@ -36,7 +41,9 @@
 <mat-drawer-container class="drawer-cont" [hasBackdrop]="false">
   <mat-drawer class="drawer-menu" mode="over" [opened]="isOpenedDrawer">
     <mat-selection-list [multiple]="false">
-      <mat-list-option (click)="handleCreateBtn()">{{'pages.create' | i18kn}}</mat-list-option>
+      <mat-list-option (click)="handleCreateBtn()">{{
+        "pages.create" | i18kn
+      }}</mat-list-option>
       <app-switch-theme></app-switch-theme>
       <app-switch-lang></app-switch-lang>
       <mat-divider></mat-divider>
@@ -45,10 +52,10 @@
     </mat-selection-list>
   </mat-drawer>
   <mat-drawer-content class="drawer-content">
-    <div class="main">
-      <div *ngIf="isLoading$ | async" class="blackOverlay">
+    <!--<div *ngIf="isLoading$ | async" class="blackOverlay">
         <mat-spinner diameter="64"></mat-spinner>
-      </div>
+      </div>-->
+    <div class="main">
       <ng-content select="[main]"></ng-content>
     </div>
     <div class="footer">

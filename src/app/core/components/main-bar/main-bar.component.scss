@@ -21,21 +21,14 @@
 }
 
 .drawer-cont {
-  width: 100%;
-  height: calc(100% - 64px);
-
-  .drawer-menu {
-    width: 160px;
-  }
-
   .drawer-content {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    max-width: 992px;
+    margin: 0 auto;
 
     .main {
-      flex-grow: 1;
-      margin-top: 60px;
     }
 
     .footer {
