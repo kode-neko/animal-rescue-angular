@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { Theme } from '../../model';
 
 @Component({
   selector: 'app-switch-theme',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class SwitchThemeComponent {
 
+  @Input() theme: Theme = Theme.DARK; 
+  @Output() changeTheme = new EventEmitter<Theme>();
+
+  changeToggle(e:MatButtonToggleChange) {
+    this.changeTheme.emit(e.value)
+  }
 }

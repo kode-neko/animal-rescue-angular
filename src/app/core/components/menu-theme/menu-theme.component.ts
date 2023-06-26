@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Theme } from '../../model';
 
 @Component({
   selector: 'app-menu-theme',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class MenuThemeComponent {
 
+  @Output() changeTheme = new EventEmitter<Theme>();
+
+  clickOption(lang: string) {
+    this.changeTheme.emit(lang as Theme);
+  }
 }

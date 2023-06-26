@@ -5,6 +5,8 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import { LoadingService } from '../../services/loading.service';
 import socialList from 'src/constants/social.constants';
+import { UserService } from '../../services/user.service';
+import { Lang, Theme } from '../../model';
 
 @Component({
   selector: 'app-main-bar',
@@ -19,7 +21,7 @@ export class MainBarComponent implements OnDestroy{
   isLoading$: BehaviorSubject<boolean>;
   socialList = socialList;
 
-  constructor(breakPointObserver: BreakpointObserver, loadingService: LoadingService, private router: Router) {
+  constructor(breakPointObserver: BreakpointObserver, loadingService: LoadingService, private router: Router, private userService: UserService) {
     this.isLoading$ = loadingService.getLoading();
     breakPointObserver
       .observe([Breakpoints.Small, Breakpoints.XSmall])
@@ -44,5 +46,13 @@ export class MainBarComponent implements OnDestroy{
   handleClickSocial(id: string) {
     const path =  socialList.find(s => s.id === id)?.path
     window.open(path, '_blank');
+  }
+
+  handleChangeLang(val: Lang) {
+    this.userService.lang.next(val)
+  }
+
+  handleChangeTheme(val: Theme) {
+    this.userService.theme.next(val)
   }
 }

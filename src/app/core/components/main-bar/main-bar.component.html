@@ -13,8 +13,10 @@
         <mat-icon>add_circle</mat-icon>
       </button>
       <app-menu-social></app-menu-social>
-      <app-menu-theme></app-menu-theme>
-      <app-menu-lang></app-menu-lang>
+      <app-menu-theme
+        (changeTheme)="handleChangeTheme($event)"
+      ></app-menu-theme>
+      <app-menu-lang (changeLang)="handleChangeLang($event)"></app-menu-lang>
     </div>
   </div>
 </mat-toolbar>
@@ -24,8 +26,12 @@
       <mat-list-option (click)="handleCreateBtn()">{{
         "pages.create" | i18kn
       }}</mat-list-option>
-      <app-switch-theme></app-switch-theme>
-      <app-switch-lang></app-switch-lang>
+      <app-switch-theme
+        (changeTheme)="handleChangeTheme($event)"
+      ></app-switch-theme>
+      <app-switch-lang
+        (changeLang)="handleChangeLang($event)"
+      ></app-switch-lang>
       <mat-divider></mat-divider>
       <mat-list-option
         *ngFor="let social of socialList"
@@ -34,7 +40,6 @@
         <fa-icon [icon]="social.icon"></fa-icon>
         <span class="label">{{ social.id }}</span>
       </mat-list-option>
-      <mat-list-option>Facebook</mat-list-option>
     </mat-selection-list>
   </mat-drawer>
   <mat-drawer-content class="drawer-content">

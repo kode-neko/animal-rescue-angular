@@ -1,5 +1,5 @@
-import { I18knService } from './../../services/i18kn.service';
-import { Component } from '@angular/core';
+import { Lang } from '../../model';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-lang',
@@ -8,11 +8,9 @@ import { Component } from '@angular/core';
 })
 export class MenuLangComponent {
 
-  constructor(private i18knService: I18knService) {
+  @Output() changeLang = new EventEmitter<Lang>();
 
-  }
-
-  changeLang(lang: string) {
-    this.i18knService.changeLang(lang);
+  clickOption(lang: string) {
+    this.changeLang.emit(lang as Lang);
   }
 }

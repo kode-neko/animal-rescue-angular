@@ -1,4 +1,13 @@
-<mat-button-toggle-group [ngStyle]="{'width': '100%'}" name="lang" aria-label="Language selector">
-  <mat-button-toggle [ngStyle]="{'width': '50%'}" value="en">en</mat-button-toggle>
-  <mat-button-toggle [ngStyle]="{'width': '50%'}" value="es">es</mat-button-toggle>
+<mat-button-toggle-group
+  (change)="changeToggle($event)"
+  [ngStyle]="{ width: '100%' }"
+  [value]="lang"
+  name="lang"
+>
+  <mat-button-toggle [ngStyle]="{ width: '50%' }" value="en"
+    >en</mat-button-toggle
+  >
+  <mat-button-toggle [ngStyle]="{ width: '50%' }" value="es"
+    >es</mat-button-toggle
+  >
 </mat-button-toggle-group>

@@ -2,6 +2,6 @@
   <mat-icon>palette</mat-icon>
 </button>
 <mat-menu #menuTheme="matMenu">
-  <button mat-menu-item>dark</button>
-  <button mat-menu-item>theme</button>
+  <button mat-menu-item (click)="clickOption('dark')">dark</button>
+  <button mat-menu-item (click)="clickOption('light')">light</button>
 </mat-menu>
