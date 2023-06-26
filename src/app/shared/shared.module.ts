@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {RouterModule} from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
 import { I18knPipe } from './pipes/i18kn.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { I18knPipe } from './pipes/i18kn.pipe';
     MatNativeDateModule,
     MatSelectModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    FontAwesomeModule
   ],
   exports: [
     HeaderSubPageComponent,

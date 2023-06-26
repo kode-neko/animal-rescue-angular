@@ -1,0 +1,13 @@
+<button [matMenuTriggerFor]="share" mat-icon-button>
+  <mat-icon>share</mat-icon>
+</button>
+<mat-menu #share="matMenu">
+  <button
+    mat-menu-item
+    *ngFor="let social of socialList"
+    (click)="handleClick(social.id)"
+  >
+    <fa-icon [icon]="social.icon"></fa-icon>
+    <span class="label">{{ social.id }}</span>
+  </button>
+</mat-menu>

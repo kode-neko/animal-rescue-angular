@@ -4,6 +4,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { Subject, BehaviorSubject } from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import { LoadingService } from '../../services/loading.service';
+import socialList from 'src/constants/social.constants';
 
 @Component({
   selector: 'app-main-bar',
@@ -16,6 +17,7 @@ export class MainBarComponent implements OnDestroy{
   destroyed = new Subject<void>();
   isSM = false;
   isLoading$: BehaviorSubject<boolean>;
+  socialList = socialList;
 
   constructor(breakPointObserver: BreakpointObserver, loadingService: LoadingService, private router: Router) {
     this.isLoading$ = loadingService.getLoading();
@@ -37,5 +39,10 @@ export class MainBarComponent implements OnDestroy{
   handleCreateBtn() {
     this.router.navigate(['/create'])
     this.isOpenedDrawer = false;
+  }
+
+  handleClickSocial(id: string) {
+    const path =  socialList.find(s => s.id === id)?.path
+    window.open(path, '_blank');
   }
 }

@@ -12,13 +12,7 @@
       <button mat-icon-button (click)="handleCreateBtn()">
         <mat-icon>add_circle</mat-icon>
       </button>
-      <button [matMenuTriggerFor]="share" mat-icon-button>
-        <mat-icon>share</mat-icon>
-      </button>
-      <mat-menu #share="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+      <app-menu-social></app-menu-social>
       <app-menu-theme></app-menu-theme>
       <app-menu-lang></app-menu-lang>
     </div>
@@ -33,7 +27,13 @@
       <app-switch-theme></app-switch-theme>
       <app-switch-lang></app-switch-lang>
       <mat-divider></mat-divider>
-      <mat-list-option>Twitter</mat-list-option>
+      <mat-list-option
+        *ngFor="let social of socialList"
+        (click)="handleClickSocial(social.id)"
+      >
+        <fa-icon [icon]="social.icon"></fa-icon>
+        <span class="label">{{ social.id }}</span>
+      </mat-list-option>
       <mat-list-option>Facebook</mat-list-option>
     </mat-selection-list>
   </mat-drawer>

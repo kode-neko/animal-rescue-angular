@@ -20,6 +20,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RouterModule } from '@angular/router';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { MenuSocialComponent } from './components/menu-social/menu-social.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     MenuLangComponent,
     MenuThemeComponent,
     LoginComponent,
+    MenuSocialComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonToggleModule,
     MatListModule,
     MatGridListModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   exports: [
     FrameComponent
